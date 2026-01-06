@@ -1,79 +1,72 @@
 # Task 2: Patient Care & Communication System Design
 
 ## Objective
-The objective of this task is to design a simple, scalable patient care and follow-up communication system that reduces WhatsApp chaos, ensures timely patient responses, and minimizes unnecessary doctor involvement while preserving care quality.
+In small healthcare clinics, doctors often receive a large number of patient messages on WhatsApp for follow-ups, reports, and routine doubts. The goal of this task is to design a simple patient communication system that reduces unnecessary doctor interruptions while ensuring patients still receive timely and proper responses.
 
 ---
 
-## Key Problem in Small Clinics
-In many small healthcare clinics:
-- Patients directly message doctors on WhatsApp for follow-ups, reports, and routine queries
-- Doctors get interrupted frequently, increasing cognitive load and burnout
-- Important messages get missed or delayed due to message overload
-- There is no structured way to track patient communication
+## Problem Observed in Small Clinics
+Based on common clinic workflows, most patient communication issues happen because:
+- Patients directly message doctors for non-urgent queries
+- Doctors get interrupted during OPD hours
+- Important messages get lost among routine messages
+- There is no clear tracking of patient communication
 
-The solution must work within existing tools and avoid adding operational complexity.
+With limited staff and manual processes, this creates confusion and delays.
 
 ---
 
-## Message Classification Framework
-All incoming patient messages can be classified into two categories:
+## Message Classification Approach
+To manage this better, patient messages can be divided into two types:
 
 ### 1. Automated Messages
-Handled without doctor involvement:
-- Appointment confirmations and reminders
+These do not require doctor involvement and can be handled by staff:
+- Appointment reminders
 - Medicine refill reminders
-- Routine test result notifications
+- Test result notifications
 - Payment confirmations
-- General clinic information (timings, location, availability)
+- General clinic information
 
-### 2. Human-in-the-Loop Messages
-Require staff or doctor review:
+### 2. Review Required Messages
+These require medical judgment and should be escalated:
 - Symptom-related follow-ups
-- Adverse medication reactions
-- Emergency or high-risk complaints
-- Treatment modification requests
+- Side effects or adverse reactions
+- Emergency complaints
+- Treatment change requests
 
-This classification ensures doctors are involved only when medically necessary.
-
----
-
-## Google Sheets–Based Control System
-A shared Google Sheet can act as a lightweight communication control hub with the following columns:
-
-- Patient ID
-- Patient Name
-- Message Category (Automated / Review Required)
-- Message Summary
-- Priority Level (Low / Medium / High)
-- Assigned To (Staff / Doctor)
-- Status (Pending / Responded / Escalated)
-- Response Time
-
-Staff update the sheet, and doctors review only high-priority escalations.
+This separation helps doctors focus only on critical cases.
 
 ---
 
-## Workflow Design
-1. Patient messages are first received by clinic staff or a shared number
-2. Staff classify and log messages into Google Sheets
-3. Automated responses are sent for routine queries
-4. Only critical or high-risk cases are escalated to doctors
-5. Doctors respond in scheduled review windows instead of constant interruptions
+## Google Sheets Control System
+A simple Google Sheet can be used as a message tracking system with the following columns:
+- Patient ID and Name
+- Message Type
+- Short message summary
+- Priority level
+- Assigned person (staff or doctor)
+- Status of response
+
+Clinic staff update the sheet, and doctors review only high-priority cases at fixed times.
 
 ---
 
-## Optional Automation (Future Scope)
-- Google Apps Script can auto-send reminders and confirmations
-- Priority-based notifications can alert doctors only for urgent cases
-- Integration with HMS can auto-fill patient details into the sheet
+## Practical Workflow
+1. Patient messages are received by clinic staff
+2. Messages are categorized and logged into the sheet
+3. Routine messages get quick standard responses
+4. Critical cases are escalated to doctors
+5. Doctors respond during scheduled review windows
+
+This avoids constant interruptions during consultations.
 
 ---
 
-## Impact of the System
-- Reduces doctor WhatsApp overload
-- Improves response consistency and patient satisfaction
-- Creates accountability and traceability for patient communication
-- Scales easily as clinic volume increases
+## Impact
+This system:
+- Reduces WhatsApp overload for doctors
+- Improves response consistency
+- Creates accountability for patient communication
+- Works with existing tools and minimal training
 
-This system prioritizes simplicity, discipline, and real-world feasibility without increasing operational burden.
+From a practical clinic perspective, this approach is easy to implement and sustainable.
