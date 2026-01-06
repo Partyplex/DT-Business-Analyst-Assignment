@@ -1,46 +1,65 @@
 # Task 1: Clinic Inventory Statistical Micro-Audit
 
 ## Objective
-The objective of this task is to identify where inventory errors are most likely to occur in small healthcare clinics and design lightweight, daily statistical checks to detect and reduce inventory mismatches caused by manual processes.
+In small healthcare clinics, inventory is usually managed manually due to limited staff and lack of barcode systems. The objective of this task is to identify where inventory errors are most likely to occur and design lightweight, daily statistical checks that help detect mistakes early and prevent revenue leakage.
+
+The focus is not on perfect reconciliation, but on practical error detection in real clinic conditions.
 
 ---
 
 ## Where Inventory Errors Are Most Likely to Occur
-In small healthcare clinics, inventory errors typically arise due to manual entry, time pressure, and lack of automated controls. The most common points where errors occur include:
+In small clinics, inventory mismatches usually happen due to manual entry, time pressure, and multitasking. The most common risk points are:
 
-- Sales entries during peak OPD hours when staff are multitasking
-- Manual corrections after stock-outs or emergency dispensing
-- Incorrect opening balance carried forward from the previous day
-- Missed entries for free samples, doctor use, or partial strip sales
-- End-of-day reconciliation being rushed or skipped due to clinic closing time
+- Sales entries during peak OPD hours when staff are rushed  
+- Manual quantity entry for medicines with similar names or packaging  
+- Missed entries for free samples or partial strip sales  
+- Stock updates done at end of day instead of real time  
+- Multiple staff members handling billing and inventory without clear ownership  
 
-These errors usually concentrate around high-velocity medicines and busy clinic periods, leading to cumulative mismatches over time.
-
----
-
-## Daily Statistical / Randomized Checks
-Instead of full daily reconciliation, the following lightweight checks can be run every day with minimal effort:
-
-- **Top Revenue Medicines Check**  
-  Verify expected closing stock versus actual stock for the top 10 medicines by revenue contribution.
-
-- **Zero or Negative Stock Flag**  
-  Automatically flag medicines showing zero or negative balance while still being dispensed.
-
-- **Sales Spike Detection**  
-  Identify abnormal daily sales spikes by comparing current sales to a rolling 7-day average.
-
-- **Random SKU Spot Audit**  
-  Randomly select 3–5 medicines daily for physical verification to maintain discipline and awareness.
-
-These checks can be implemented easily using Google Sheets formulas and require very limited staff time.
+These errors are usually unintentional but accumulate over time.
 
 ---
 
-## How These Checks Improve Staff Compliance and SOP Discipline
-- Staff become more careful knowing that daily and random checks are in place
-- Errors are detected early before turning into major revenue leakage
-- Random audits discourage intentional bypassing of SOPs
-- Doctors are involved only when repeated or high-impact anomalies occur
+## Daily Statistical Micro-Audit Checks
+Instead of checking the entire inventory daily, the clinic can run simple checks on selected data points:
 
-This approach improves operational discipline and financial accuracy without increasing doctor workload or operational complexity.
+### 1. High-Value Item Check
+Each day, randomly select 5–10 high-cost medicines and compare:
+- Opening stock  
+- Sales quantity  
+- Closing stock  
+
+Large deviations indicate possible entry errors.
+
+### 2. Fast-Moving Medicine Check
+Track medicines with high daily sales volume. Sudden drops or spikes in usage can signal missed or duplicate entries.
+
+### 3. Zero-Sale Anomaly Check
+If a commonly sold medicine shows zero sales on a busy day, it should be flagged for review.
+
+### 4. Random Item Spot Check
+Randomly audit a small set of medicines daily to create uncertainty and encourage careful data entry.
+
+These checks take minimal time but significantly improve accuracy.
+
+---
+
+## How These Checks Improve Staff Compliance
+When staff know that small random checks happen daily:
+- Carelessness reduces naturally
+- Staff enter data more attentively
+- Errors are corrected early instead of accumulating
+- Accountability becomes part of routine work
+
+This improves discipline without adding pressure or blame.
+
+---
+
+## Practical Impact
+This micro-audit system:
+- Fits into busy clinic workflows
+- Requires no new software
+- Reduces inventory leakage
+- Improves trust in inventory data
+
+From an operational perspective, this approach is realistic and easy for clinics to adopt.
